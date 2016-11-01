@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Surendra Persaud</title>
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<script>
+		var send = {
+			"e-mail" : "persaudsurendra@gmail.com",
+			"github" : "https://github.com/surenzxx"
+		}
+		$(document).ready(function(){
+			$(".container").text("ready!");
+			$(".container").text(send);
+			console.log(send);
+			
+			$.ajax({
+                url: "http://challenge.code2040.org/api/register",
+                type: 'POST',
+                crossDomain: true,
+                dataType: 'text',
+                data: JSON.stringify(send)
+            }).done(function (data) {
+                $(".container").text(data);
+                console.log(data);
+            }); 
+		});
+	</script>
+
+</body>
+</html>
